@@ -1,10 +1,4 @@
-# Getting Started with Create React App
+check out the website : 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
+Portpolio Link : https://my-portpolio-7899.netlify.app/
