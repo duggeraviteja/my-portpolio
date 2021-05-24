@@ -7,7 +7,7 @@ const Navbar = ()=> {
     return(
 
         <>
-<nav className="navbar navbar-expand-lg navbar-light ">
+<nav className="navbar sticky-top  navbar-expand-lg ">
   <div className="container-fluid">
     <NavLink className="navbar-brand" to="/"> <img className="img-fluid img" src={sett} alt="aboutimage" /> Portfolio</NavLink>
   </div>

@@ -74,7 +74,7 @@ return (
                                                             </a>
                                                         </div>
                                                         <div>
-                                                            <a href="https://twitter.com/DuggeRaviteja">
+                                                            <a href="https://github.com/duggeraviteja/">
                                                                 <i className="fab fa-2x fa-github"></i>
                                                             </a>
                                                         </div>

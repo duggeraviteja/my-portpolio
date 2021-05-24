@@ -23,6 +23,10 @@
     width: 100%;
     font-style: italic;
     font-weight: bold;
+    display:block !important;
+  z-index: 1030;
+  position:static ;
+    
 }
   .navbar-brand{
     margin: auto !important;
