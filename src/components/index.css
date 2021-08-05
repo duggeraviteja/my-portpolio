@@ -84,7 +84,7 @@ background-image: url("./images/a.jpg");
   text-align: center;
   border-top: 5px  #1dd1a1 !important;
   border-left: 2px red !important;
- box-shadow: 2px 2px 3px 3px rgb(235, 233, 233);
+ box-shadow: 2px 2px 3px 3px rgb(59, 187, 123);
   /* border-top-left-radius: 50px !important;
   border-bottom-right-radius: 30px !important; */
 
@@ -180,7 +180,8 @@ animation: change-3 3s linear  6s alternate;
   background: linear-gradient(35deg, #8ad139  30%, rgba(0,0,0,0) 40%), linear-gradient(135deg, #dfac3f 30%, #6f48d3 85%);
   
   color:#ffff;
-  box-shadow: 2px 2px 3px 6px #54a0ff;
+  transition: 1.5s;
+  box-shadow: 2px 2px 2px 3px #dbb4c9;
 }
 .img{
   width:50px;
@@ -383,14 +384,14 @@ color: #F97F51;
 
 .ca:hover {
   transition: all 0.2s ease-out;
-  box-shadow: 0px 4px 8px rgba(228, 57, 57, 0.653);
+  box-shadow: 0px 4px 8px rgba(57, 228, 80, 0.653);
   top: -4px;
   border: 2px solid #a55eea;
   background-color:#09af00;
 }
 
 .ca {
-    box-shadow: 4px 8px 4px 4px #9ee7d6;
+    box-shadow: 2px 3px 3px px #42ca86;
 }
 
 .proj {

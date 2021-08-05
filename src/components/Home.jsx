@@ -1,10 +1,23 @@
-import React from "react";
+import React ,{useEffect} from "react";
 import { NavLink } from "react-router-dom";
 import about from "./images/about.svg";
 import contact from "./images/contact.svg";
 import project from "./images/project.svg";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Home = () => {
+
+
+
+    useEffect(() => {
+        AOS.init({
+        offset:200,
+        duration:800,
+        easing: 'ease-in-sine',
+        });
+      }, []);
+
 return (
 <>
     <div className="main">
@@ -25,7 +38,7 @@ return (
                                 className="col-lg-6 order-2 order-lg-2 d-flex justify-content-center flex-column second mb-3">
                                 <div className="container-fluid cnt mt-5">
                                     <div className="row gy-4">
-                                        <div className="col-md-5 col-12 cnt mx-auto">
+                                        <div className="col-md-5 col-12 cnt mx-auto" data-aos={"slide-left"}>
                                             <NavLink to="/about" className="text-center text-decoration-none">
                                                 <div className="card card-1">
                                                     <div className="card-body">
@@ -37,7 +50,7 @@ return (
                                             </NavLink>
                                         </div>
 
-                                        <div className="col-md-5 col-12 cnt mx-auto">
+                                        <div className="col-md-5 col-12 cnt mx-auto " data-aos={"slide-right"}>
                                             <NavLink to="/projects" className="text-center text-decoration-none">
                                                 <div className="card card-2 ">
                                                     <div className="card-body">
@@ -52,7 +65,7 @@ return (
 
                                 <div className="container-fluid cnt mt-5">
                                     <div className="row gy-4">
-                                        <div className="col-md-5 col-12 mx-auto">
+                                        <div className="col-md-5 col-12 mx-auto" data-aos={"slide-left"}>
                                             <NavLink to="/contact" className="text-center text-decoration-none">
                                                 <div className=" card card-3 ca">
                                                     <div className="card-body">
@@ -64,17 +77,17 @@ return (
                                         </div>
 
                                         <div className="col-md-5 col-12 mx-auto mb-4">
-                                            <div className="card card-4 ca">
+                                            <div className="card card-4 " data-aos={"slide-right"}>
                                                 <div className="card-body">
 
                                                     <div className="test centerdiv">
                                                         <div>
-                                                            <a href="https://twitter.com/DuggeRaviteja">
+                                                            <a href="https://twitter.com/DuggeRaviteja" target="_blank">
                                                                 <i className="fab fa-2x fa-twitter"></i>
                                                             </a>
                                                         </div>
                                                         <div>
-                                                            <a href="https://github.com/duggeraviteja/">
+                                                            <a href="https://github.com/duggeraviteja/" target="_blank">
                                                                 <i className="fab fa-2x fa-github"></i>
                                                             </a>
                                                         </div>
@@ -82,14 +95,14 @@ return (
 
                                                     <div className="test centerdiv">
                                                         <div>
-                                                            <a href="https://www.instagram.com/_raviteja_01">
+                                                            <a href="https://www.instagram.com/_raviteja_01" target="_blank">
                                                                 <i className="fab fa-2x fa-instagram"></i>
                                                             </a>
                                                         </div>
 
                                                         <div>
-                                                            <a href="https://www.facebook.com/dugge.raviteja">
-                                                                <i className="fab fa-2x fa-facebook-f"></i>
+                                                            <a href="https://www.linkedin.com/in/dugge-raviteja-789ravi/" target="_blank" >
+                                                                <i className="fab fa-2x fa-linkedin	"></i>
                                                             </a>
                                                         </div>
                                                     </div>
