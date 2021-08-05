@@ -1,6 +1,17 @@
-import React from "react";
+import React ,{useEffect} from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+
 
 const Projects = () => {
+  useEffect(() => {
+    AOS.init({
+    offset:200,
+    duration:600,
+    easing: 'ease-in-sine',
+    });
+  }, []);
 return(
 <>
 
@@ -11,7 +22,7 @@ return(
 
 
 
-          <div className="col-md-4 col-12 mx-auto ">
+          <div className="col-md-4 col-12 mx-auto "  data-aos={"slide-left"}>
             <div className="card  card-1 ca">
               <div className="card-body">
                 <h4 className="card-title">Web Project </h4>
@@ -26,7 +37,7 @@ return(
           </div>
 
 
-          <div className="col-md-4 col-12 mx-auto">
+          <div className="col-md-4 col-12 mx-auto"  data-aos={"slide-right"}>
             <div className="card  card-2 ca">
               <div className="card-body">
                 <h4 className="card-title">Web Project </h4>
@@ -42,7 +53,7 @@ return(
           </div>
 
 
-          <div className="col-md-4 col-12 mx-auto">
+          <div className="col-md-4 col-12 mx-auto"  data-aos={"flip-up"}>
             <div className="card card-3 ca">
               <div className="card-body">
                 <h4 className="card-title">Web Project </h4>
@@ -59,7 +70,7 @@ return(
 
 
 
-          <div className="col-md-4 col-12 mx-auto">
+          <div className="col-md-4 col-12 mx-auto"  data-aos={"flip-down"}>
             <div className="card  card-4 ca">
               <div className="card-body">
                 <h4 className="card-title">Web Project </h4>
@@ -76,7 +87,34 @@ return(
 
 
 
+          <div className="col-md-4 col-12 mx-auto"  data-aos={"slide-up"}>
+            <div className="card  card-2 ca">
+              <div className="card-body">
+                <h4 className="card-title">Web Project </h4>
+                <hr />
+                <h1>Todo List </h1>
+               
+                <a href="https://github.com/duggeraviteja/todo-list" target="_blank" className="btn-start m-2">
+                  GITHUB Link</a>
 
+              </div>
+            </div>
+          </div>
+          
+
+          <div className="col-md-4 col-12 mx-auto"  data-aos={"slide-down"}> 
+            <div className="card  card-2 ca">
+              <div className="card-body">
+                <h4 className="card-title">Web Project </h4>
+                <hr />
+                <h1> Blog Post </h1>
+             
+                <a href="https://github.com/duggeraviteja/Daily-journal-blog-post" target="_blank" className="btn-start m-2">
+                  GITHUB Link</a>
+
+              </div>
+            </div>
+          </div>
 
 
 
