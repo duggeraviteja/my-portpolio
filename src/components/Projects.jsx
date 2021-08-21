@@ -76,7 +76,7 @@ return(
                 <h4 className="card-title">Web Project </h4>
                 <hr />
                 <h1>TRACK COVID-19 </h1>
-                <a href="https://covid-19-tracking-india.herokuapp.com/" target="_blank" className="btn-start"> Visit
+                <a href="https://tracking-covid19-india.netlify.app/" target="_blank" className="btn-start"> Visit
                   Website</a>
                 <a href="https://github.com/duggeraviteja/Covid-19-Tracking-" target="_blank" className="btn-start m-2">
                   GITHUB Link</a>
