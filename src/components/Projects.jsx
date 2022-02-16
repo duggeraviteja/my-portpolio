@@ -121,7 +121,7 @@ return(
               <div className="card-body">
                 <h4 className="card-title">Programming </h4>
                 <hr />
-                <h1>  DSA </h1>
+                <h1>  DSA usig Java </h1>
              
                 <a href="https://github.com/duggeraviteja/DSA-Using-JAVA" target="_blank" className="btn-start m-2">
                   GITHUB Link</a>
