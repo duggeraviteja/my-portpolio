@@ -119,7 +119,7 @@ return(
      <div className="col-md-4 col-12 mx-auto" > 
             <div className="card  card-2 ca">
               <div className="card-body">
-                <h4 className="card-title">Web Project </h4>
+                <h4 className="card-title">Programming </h4>
                 <hr />
                 <h1>  DSA </h1>
              
