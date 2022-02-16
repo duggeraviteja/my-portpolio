@@ -114,10 +114,44 @@ return(
 
               </div>
             </div>
+          </div> 
+
+     <div className="col-md-4 col-12 mx-auto"  data-aos={"slide-down"}> 
+            <div className="card  card-2 ca">
+              <div className="card-body">
+                <h4 className="card-title">Web Project </h4>
+                <hr />
+                <h1>  DSA </h1>
+             
+                <a href="https://github.com/duggeraviteja/DSA-Using-JAVA" target="_blank" className="btn-start m-2">
+                  GITHUB Link</a>
+
+              </div>
+            </div>
           </div>
 
 
 
+
+
+
+
+
+        <div className="col-md-4 col-12 mx-auto"  data-aos={"slide-down"}> 
+            <div className="card  card-2 ca">
+              <div className="card-body">
+                <h4 className="card-title">Web Project </h4>
+                <hr />
+                <h1> E-Learning App Post </h1>
+                  <a href="https://standard-edification.herokuapp.com/" target="_blank" className="btn-start"> Visit
+                  Website</a>
+             
+                <a href="https://github.com/duggeraviteja/e_learning_website" target="_blank" className="btn-start m-2">
+                  GITHUB Link</a>
+
+              </div>
+            </div>
+          </div>
 
 
 
