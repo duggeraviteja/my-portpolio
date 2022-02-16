@@ -116,7 +116,7 @@ return(
             </div>
           </div> 
 
-     <div className="col-md-4 col-12 mx-auto"  data-aos={"slide-down"}> 
+     <div className="col-md-4 col-12 mx-auto" > 
             <div className="card  card-2 ca">
               <div className="card-body">
                 <h4 className="card-title">Web Project </h4>
@@ -137,7 +137,7 @@ return(
 
 
 
-        <div className="col-md-4 col-12 mx-auto"  data-aos={"slide-down"}> 
+        <div className="col-md-4 col-12 mx-auto"> 
             <div className="card  card-2 ca">
               <div className="card-body">
                 <h4 className="card-title">Web Project </h4>
