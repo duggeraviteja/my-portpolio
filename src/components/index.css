@@ -397,8 +397,6 @@ color: #F97F51;
 .proj {
   background: linear-gradient(135deg, #b13ec1 0%, #1bdcdf 100%) !important;
   color: #fff;
-  height: 100vh;
- 
 }
 
 @media only screen and (max-width: 600px) {
