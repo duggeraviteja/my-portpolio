@@ -38,7 +38,7 @@ return (
                                 className="col-lg-6 order-2 order-lg-2 d-flex justify-content-center flex-column second mb-3">
                                 <div className="container-fluid cnt mt-5">
                                     <div className="row gy-4">
-                                        <div className="col-md-5 col-12 cnt mx-auto" data-aos={"slide-up"}>
+                                        <div className="col-md-5 col-12 cnt mx-auto" >
                                             <NavLink to="/about" className="text-center text-decoration-none">
                                                 <div className="card card-1">
                                                     <div className="card-body">
