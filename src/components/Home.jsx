@@ -50,7 +50,7 @@ return (
                                             </NavLink>
                                         </div>
 
-                                        <div className="col-md-5 col-12 cnt mx-auto " data-aos={"slide-up"}>
+                                        <div className="col-md-5 col-12 cnt mx-auto " >
                                             <NavLink to="/projects" className="text-center text-decoration-none">
                                                 <div className="card card-2 ">
                                                     <div className="card-body">
@@ -65,7 +65,7 @@ return (
 
                                 <div className="container-fluid cnt mt-5">
                                     <div className="row gy-4">
-                                        <div className="col-md-5 col-12 mx-auto" data-aos={"slide-up"}>
+                                        <div className="col-md-5 col-12 mx-auto" >
                                             <NavLink to="/contact" className="text-center text-decoration-none">
                                                 <div className=" card card-3 ca">
                                                     <div className="card-body">
@@ -77,7 +77,7 @@ return (
                                         </div>
 
                                         <div className="col-md-5 col-12 mx-auto mb-4">
-                                            <div className="card card-4 " data-aos={"slide-up"}>
+                                            <div className="card card-4 " >
                                                 <div className="card-body">
 
                                                     <div className="test centerdiv">
