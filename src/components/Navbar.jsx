@@ -27,7 +27,7 @@ setTimeout(currentdate,1000);
         <>
 <nav className="navbar sticky-top  navbar-expand-lg sticky-top">
   <div className="container-fluid">
-    <NavLink className="navbar-brand" to="/"> <img className="img-fluid img" src={sett} alt="aboutimage" /> Portfolio </NavLink>
+    <NavLink className="navbar-brand" to="/"> Portfolio </NavLink>
     <p>   {time} </p>
   </div>
 </nav>
