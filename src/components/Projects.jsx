@@ -22,7 +22,7 @@ return(
 
 
 
-          <div className="col-md-4 col-12 mx-auto "  data-aos={"slide-left"}>
+          <div className="col-md-4 col-12 mx-auto " >
             <div className="card  card-1 ca">
               <div className="card-body">
                 <h4 className="card-title">Web Project </h4>
@@ -37,7 +37,7 @@ return(
           </div>
 
 
-          <div className="col-md-4 col-12 mx-auto"  data-aos={"slide-right"}>
+          <div className="col-md-4 col-12 mx-auto"  >
             <div className="card  card-2 ca">
               <div className="card-body">
                 <h4 className="card-title">Web Project </h4>
@@ -53,7 +53,7 @@ return(
           </div>
 
 
-          <div className="col-md-4 col-12 mx-auto"  data-aos={"flip-up"}>
+          <div className="col-md-4 col-12 mx-auto"  >
             <div className="card card-3 ca">
               <div className="card-body">
                 <h4 className="card-title">Web Project </h4>
@@ -70,7 +70,7 @@ return(
 
 
 
-          <div className="col-md-4 col-12 mx-auto"  data-aos={"flip-down"}>
+          <div className="col-md-4 col-12 mx-auto" >
             <div className="card  card-4 ca">
               <div className="card-body">
                 <h4 className="card-title">Web Project </h4>
@@ -87,7 +87,7 @@ return(
 
 
 
-          <div className="col-md-4 col-12 mx-auto"  data-aos={"slide-up"}>
+          <div className="col-md-4 col-12 mx-auto" >
             <div className="card  card-2 ca">
               <div className="card-body">
                 <h4 className="card-title">Web Project </h4>
@@ -102,7 +102,7 @@ return(
           </div>
           
 
-          <div className="col-md-4 col-12 mx-auto"  data-aos={"slide-down"}> 
+          <div className="col-md-4 col-12 mx-auto"  > 
             <div className="card  card-2 ca">
               <div className="card-body">
                 <h4 className="card-title">Web Project </h4>
@@ -142,7 +142,7 @@ return(
               <div className="card-body">
                 <h4 className="card-title">Web Project </h4>
                 <hr />
-                <h1> E-Learning App Post </h1>
+                <h1> E-Learning App </h1>
                   <a href="https://standard-edification.herokuapp.com/" target="_blank" className="btn-start"> Visit
                   Website</a>
              
