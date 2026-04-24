@@ -1,6 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const FILTERS = ['all', 'platform', 'tooling'];
+
+const DSA_REPO = 'duggeraviteja/DSA-Using-JAVA';
+
+function useDSACount() {
+  const [count, setCount] = useState(null);
+  useEffect(() => {
+    fetch(`https://api.github.com/repos/${DSA_REPO}/git/trees/HEAD?recursive=1`)
+      .then((r) => r.json())
+      .then((data) => {
+        if (Array.isArray(data.tree)) {
+          const n = data.tree.filter((f) => f.type === 'blob' && f.path.endsWith('.java')).length;
+          if (n > 0) setCount(n);
+        }
+      })
+      .catch(() => {});
+  }, []);
+  return count;
+}
 
 const ProjectCard = ({ project }) => (
   <div
@@ -47,7 +65,14 @@ const ProjectCard = ({ project }) => (
 
 const Projects = ({ data }) => {
   const [active, setActive] = useState('all');
-  const filtered = active === 'all' ? data : data.filter((p) => p.kind === active);
+  const dsaCount = useDSACount();
+  const filtered = (active === 'all' ? data : data.filter((p) => p.kind === active)).map((p) => {
+    if (p.id !== 'PRJ-03' || !dsaCount) return p;
+    return {
+      ...p,
+      metrics: p.metrics.map((m) => m.label === 'Problems' ? { ...m, value: `${dsaCount}` } : m),
+    };
+  });
 
   return (
     <section id="section-projects" className="section">

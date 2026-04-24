@@ -74,7 +74,7 @@ const PORTFOLIO = {
       blurb:
         'Comprehensive collection of data structure implementations and algorithm solutions in Java — used as a personal reference and study resource.',
       metrics: [
-        { value: '40+', label: 'Problems' },
+        { value: '150+', label: 'Problems' },
         { value: 'Java', label: 'Language' },
         { value: 'OOP', label: 'Patterns' },
       ],
