@@ -101,7 +101,7 @@ return (
                                                         </div>
 
                                                         <div>
-                                                            <a href="https://www.linkedin.com/in/dugge-raviteja-789ravi/" target="_blank" >
+                                                            <a href="https://www.linkedin.com/in/duggeraviteja/" target="_blank" >
                                                                 <i className="fab fa-2x fa-linkedin	"></i>
                                                             </a>
                                                         </div>

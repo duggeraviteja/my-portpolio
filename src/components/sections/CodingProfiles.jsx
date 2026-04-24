@@ -27,8 +27,14 @@ const CodingProfiles = ({ data }) => (
           </div>
 
           <div className="coding-info">
-            <p className="coding-platform">{item.platform}</p>
-            <p className="coding-handle">@{item.handle}</p>
+            <p className="coding-platform">
+              <span className="coding-dot" />
+              {item.platform}
+            </p>
+            <div className="coding-terminal">
+              <span className="coding-prompt">$</span>
+              <span className="coding-handle-text">{item.handle}</span>
+            </div>
             <p className="coding-desc">{item.desc}</p>
           </div>
 
