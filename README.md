@@ -5,6 +5,8 @@ Every section is a "file" in the editor; the sidebar, tabs, and status bar stay 
 
 **Live:** https://duggeraviteja.netlify.app/
 
+![Portfolio Preview](src/components/images/preview.png)
+
 ---
 
 ## Stack
