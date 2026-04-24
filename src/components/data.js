@@ -7,24 +7,24 @@ const PORTFOLIO = {
   yoe: 4,
   email: 'duggeraviteja@gmail.com',
   githubUrl: 'https://github.com/duggeraviteja/',
-  linkedin: 'https://www.linkedin.com/in/dugge-raviteja-789ravi/',
+  linkedin: 'https://www.linkedin.com/in/duggeraviteja/',
   tagline: 'Building backends that stay boring — reliable, observable, maintainable.',
 
   skills: {
     languages: [
       { name: 'Java', level: 83, years: 4 },
-      { name: 'JavaScript', level: 77, years: 3 },
+      { name: 'JavaScript', level: 68, years: 3 },
       { name: 'SQL', level: 69, years: 4 },
-      { name: 'Python', level: 56, years: 2 },
+      { name: 'Python', level: 56, years: 3 },
     ],
     frameworks: [
-      { name: 'Spring Boot', level: 85, years: 4 },
-      { name: 'React', level: 72, years: 3 },
-      { name: 'Node.js', level: 74, years: 2 },
-      { name: 'Bootstrap', level: 89, years: 3 },
+      { name: 'Spring MVC & Boot', level: 81, years: 4 },
+      { name: 'React', level: 52, years: 3 },
+      { name: 'Node.js', level: 60, years: 3 },
+      { name: 'Bootstrap', level: 75, years: 3 },
     ],
-    data: ['MongoDB', 'MySQL', 'MariaDB', 'Flowable BPM', 'Hibernate', 'JPA', 'JDBC'],
-    infra: ['Git / JGit', 'Docker', 'Jenkins', 'NGINX', 'Maven', 'Linux', 'Squid Proxy'],
+    data: ['MySQL','Postgres', 'MariaDB', 'Flowable BPM', 'Hibernate', 'JPA', 'JDBC','MongoDB'],
+    infra: ['Git / JGit', 'Docker','Radis', 'Jenkins', 'NGINX', 'Maven', 'Gradle', 'Linux', 'Squid Proxy'],
   },
 
   projects: [
