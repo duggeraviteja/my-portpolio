@@ -12,19 +12,22 @@ const PORTFOLIO = {
 
   skills: {
     languages: [
-      { name: 'Java', level: 83, years: 4 },
-      { name: 'JavaScript', level: 68, years: 3 },
-      { name: 'SQL', level: 69, years: 4 },
-      { name: 'Python', level: 56, years: 3 },
+      { name: 'Java',       version: '17 LTS', years: 4 },
+      { name: 'JavaScript', version: 'ES2022',  years: 3 },
+      { name: 'SQL',        version: 'ANSI',    years: 4 },
+      { name: 'Python',     version: '3.11',    years: 3 },
     ],
     frameworks: [
-      { name: 'Spring MVC & Boot', level: 81, years: 4 },
-      { name: 'React', level: 52, years: 3 },
-      { name: 'Node.js', level: 60, years: 3 },
-      { name: 'Bootstrap', level: 75, years: 3 },
+      { name: 'Spring Boot',  version: '3.2.x', years: 4 },
+      { name: 'Spring MVC',   version: '6.x',   years: 4 },
+      { name: 'Flowable BPM', version: '6.x',   years: 2 },
+      { name: 'React',        version: '17',     years: 3 },
+      { name: 'Node.js',      version: '18 LTS', years: 3 },
     ],
-    data: ['MySQL','Postgres', 'MariaDB', 'Flowable BPM', 'Hibernate', 'JPA', 'JDBC','MongoDB'],
-    infra: ['Git / JGit', 'Docker','Radis', 'Jenkins', 'NGINX', 'Maven', 'Gradle', 'Linux', 'Squid Proxy'],
+    databases:   ['MySQL 8.0', 'PostgreSQL', 'MariaDB', 'MongoDB', 'Redis', 'Hibernate / JPA', 'JDBC'],
+    devops:      ['Docker', 'Jenkins', 'NGINX', 'Linux', 'Squid Proxy'],
+    build_tools: ['Maven', 'Gradle', 'Git / JGit'],
+    testing:     ['JUnit 5', 'Mockito', 'Postman'],
   },
 
   projects: [
