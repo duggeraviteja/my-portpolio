@@ -1,4 +1,5 @@
 import React from 'react';
+import resumePdf from '../images/duggeraviteja-resume.pdf';
 
 const codeLines = [
   { n: 1,  parts: [{ c: 'cm', t: '// Engineer.java' }] },
@@ -24,8 +25,7 @@ const Hero = ({ data, caretOn, onNavigate }) => (
     <div className="hero-grid">
       <div className="hero-left">
         <div className="hero-pill">
-          <span className="status-dot" />
-          Open to senior backend roles &nbsp;·&nbsp; {data.location} &nbsp;·&nbsp; {data.timezone}
+          {data.location} &nbsp;·&nbsp; {data.timezone}
         </div>
 
         <p className="hero-kicker">
@@ -44,13 +44,17 @@ const Hero = ({ data, caretOn, onNavigate }) => (
         <p className="hero-tagline">{data.tagline}</p>
 
         <div className="hero-btns">
-          <button className="btn-primary" onClick={() => onNavigate('experience')}>
+          <a className="btn-primary" href={resumePdf} download="Raviteja_Dugge_Resume.pdf">
+            <i className="fa-solid fa-download" />
+            Resume
+          </a>
+          <button className="btn-neutral" onClick={() => onNavigate('experience')}>
             <i className="fa-solid fa-briefcase" />
-            View Experience
+            Experience
           </button>
           <button className="btn-neutral" onClick={() => onNavigate('projects')}>
             <i className="fa-solid fa-code" />
-            Featured Work
+            Projects
           </button>
           <a className="btn-ghost" href={`mailto:${data.email}`}>
             <i className="fa-solid fa-envelope" />

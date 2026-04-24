@@ -1,12 +1,16 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import './index.css';
 import PORTFOLIO from './data';
+import avatarImg from './images/raviteja.JPG';
+import resumePdf from './images/duggeraviteja-resume.pdf';
 import Hero from './sections/Hero';
 import Skills from './sections/Skills';
 import Projects from './sections/Projects';
 import Experience from './sections/Experience';
 import GitHub from './sections/GitHub';
 import Certifications from './sections/Certifications';
+import Connect from './sections/Connect';
+import CodingProfiles from './sections/CodingProfiles';
 
 /* ─── Constants ─────────────────────────────────────────────────────────── */
 const SECTIONS = [
@@ -16,6 +20,8 @@ const SECTIONS = [
   { id: 'experience', label: 'Experience.java',  iconClass: 'ft-java',icon: 'fa-regular fa-file-code' },
   { id: 'github',     label: 'github.activity',  iconClass: 'ft-act', icon: 'fa-regular fa-file' },
   { id: 'certs',      label: 'Credentials.xml',  iconClass: 'ft-xml', icon: 'fa-regular fa-file-code' },
+  { id: 'connect',    label: 'connect.json',      iconClass: 'ft-json', icon: 'fa-regular fa-file-code' },
+  { id: 'coding',     label: 'coding.profiles',   iconClass: 'ft-act',  icon: 'fa-regular fa-file-code' },
 ];
 
 const ACTIVITY_ICONS = [
@@ -50,7 +56,7 @@ function useLocalStorage(key, defaultVal) {
 }
 
 /* ─── Titlebar ───────────────────────────────────────────────────────────── */
-function Titlebar({ activeSection, onCommandPalette, sidebarOpen, onToggleSidebar }) {
+function Titlebar({ activeSection, onCommandPalette, sidebarOpen, onToggleSidebar, theme, onToggleTheme }) {
   const sec = SECTIONS.find((s) => s.id === activeSection) || SECTIONS[0];
   return (
     <header className="ide-titlebar" role="banner">
@@ -88,10 +94,14 @@ function Titlebar({ activeSection, onCommandPalette, sidebarOpen, onToggleSideba
       </div>
 
       <div className="titlebar-pills">
-        <span className="tb-pill work-pill">
-          <span className="status-dot" aria-hidden="true" />
-          Open to work
-        </span>
+        <button
+          className="theme-toggle"
+          onClick={onToggleTheme}
+          aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+          title={theme === 'dark' ? 'Light mode' : 'Dark mode'}
+        >
+          <i className={theme === 'dark' ? 'fa-regular fa-sun' : 'fa-regular fa-moon'} />
+        </button>
         <a
           className="tb-pill"
           href={PORTFOLIO.githubUrl}
@@ -107,29 +117,108 @@ function Titlebar({ activeSection, onCommandPalette, sidebarOpen, onToggleSideba
   );
 }
 
+/* ─── Profile Dialog ─────────────────────────────────────────────────────── */
+function ProfileAvatar() {
+  return (
+    <img
+      src={avatarImg}
+      alt={PORTFOLIO.name}
+      className="profile-avatar-img"
+    />
+  );
+}
+
+function ProfileDialog({ onClose }) {
+  const current = PORTFOLIO.experience[0];
+
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === 'Escape') onClose(); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [onClose]);
+
+  return (
+    <>
+      <div className="profile-backdrop" onClick={onClose} />
+      <div className="profile-dialog" role="dialog" aria-label="Profile" aria-modal="true">
+
+        <div className="profile-top">
+          <div className="profile-avatar-wrap">
+            <ProfileAvatar />
+          </div>
+          <div className="profile-top-info">
+            <p className="profile-name">{PORTFOLIO.name}</p>
+            <p className="profile-email">{PORTFOLIO.email}</p>
+          </div>
+        </div>
+
+        <div className="profile-divider" />
+
+        <div className="profile-block">
+          <p className="profile-block-label">Current position</p>
+          <p className="profile-block-title">{current.role}</p>
+          <p className="profile-block-sub">{current.company} &nbsp;·&nbsp; {current.date}</p>
+        </div>
+
+        <div className="profile-divider" />
+
+        <div className="profile-meta-row">
+          <span><i className="fa-solid fa-location-dot" />{PORTFOLIO.location}</span>
+          <span><i className="fa-solid fa-clock" />{PORTFOLIO.timezone}</span>
+          <span><i className="fa-solid fa-layer-group" />{PORTFOLIO.yoe}+ yrs experience</span>
+        </div>
+
+        <div className="profile-divider" />
+
+        <div className="profile-links">
+          <a href={PORTFOLIO.githubUrl} target="_blank" rel="noopener noreferrer">
+            <i className="fa-brands fa-github" />GitHub
+          </a>
+          <a href={PORTFOLIO.linkedin} target="_blank" rel="noopener noreferrer">
+            <i className="fa-brands fa-linkedin" />LinkedIn
+          </a>
+          <a href={`mailto:${PORTFOLIO.email}`}>
+            <i className="fa-solid fa-envelope" />Email
+          </a>
+        </div>
+      </div>
+    </>
+  );
+}
+
 /* ─── Activity Bar ───────────────────────────────────────────────────────── */
 function ActivityBar({ activeGroup, onGroupChange }) {
+  const [profileOpen, setProfileOpen] = useState(false);
   return (
-    <nav className="ide-activity" aria-label="Activity bar">
-      {ACTIVITY_ICONS.map((a) => (
+    <>
+      <nav className="ide-activity" aria-label="Activity bar">
+        {ACTIVITY_ICONS.map((a) => (
+          <button
+            key={a.id}
+            className={`activity-icon${activeGroup === a.id ? ' active' : ''}`}
+            onClick={() => onGroupChange(a.id)}
+            aria-label={a.label}
+            title={a.label}
+          >
+            <i className={a.icon} />
+          </button>
+        ))}
+        <div className="activity-spacer" />
         <button
-          key={a.id}
-          className={`activity-icon${activeGroup === a.id ? ' active' : ''}`}
-          onClick={() => onGroupChange(a.id)}
-          aria-label={a.label}
-          title={a.label}
+          className={`activity-icon${profileOpen ? ' active' : ''}`}
+          aria-label="Account"
+          title="Account"
+          onClick={() => setProfileOpen((o) => !o)}
         >
-          <i className={a.icon} />
+          <i className="fa-regular fa-circle-user" />
         </button>
-      ))}
-      <div className="activity-spacer" />
-      <button className="activity-icon" aria-label="Account" title="Account">
-        <i className="fa-regular fa-circle-user" />
-      </button>
-      <button className="activity-icon" aria-label="Settings" title="Settings">
-        <i className="fa-solid fa-gear" />
-      </button>
-    </nav>
+        <button className="activity-icon" aria-label="Settings" title="Settings">
+          <i className="fa-solid fa-gear" />
+        </button>
+      </nav>
+
+      {profileOpen && <ProfileDialog onClose={() => setProfileOpen(false)} />}
+    </>
   );
 }
 
@@ -245,26 +334,29 @@ function StatusBar({ activeSection }) {
 /* ─── Command Palette ────────────────────────────────────────────────────── */
 function buildCmdItems(data) {
   return [
-    { group: 'navigate', icon: 'fa-regular fa-file-lines', label: 'Go to: README.md', action: 'nav:readme', sub: 'hero' },
-    { group: 'navigate', icon: 'fa-regular fa-file-code',  label: 'Go to: skills.yml', action: 'nav:skills' },
-    { group: 'navigate', icon: 'fa-regular fa-file-code',  label: 'Go to: Projects.java', action: 'nav:projects' },
-    { group: 'navigate', icon: 'fa-regular fa-file-code',  label: 'Go to: Experience.java', action: 'nav:experience' },
-    { group: 'navigate', icon: 'fa-regular fa-file',       label: 'Go to: github.activity', action: 'nav:github' },
-    { group: 'navigate', icon: 'fa-regular fa-file-code',  label: 'Go to: Credentials.xml', action: 'nav:certs' },
+    { group: 'navigate', icon: 'fa-regular fa-file-lines', label: 'Go to: README.md',        action: 'nav:readme' },
+    { group: 'navigate', icon: 'fa-regular fa-file-code',  label: 'Go to: skills.yml',        action: 'nav:skills' },
+    { group: 'navigate', icon: 'fa-regular fa-file-code',  label: 'Go to: Projects.java',     action: 'nav:projects' },
+    { group: 'navigate', icon: 'fa-regular fa-file-code',  label: 'Go to: Experience.java',   action: 'nav:experience' },
+    { group: 'navigate', icon: 'fa-regular fa-file',       label: 'Go to: github.activity',   action: 'nav:github' },
+    { group: 'navigate', icon: 'fa-regular fa-file-code',  label: 'Go to: Credentials.xml',   action: 'nav:certs' },
+    { group: 'navigate', icon: 'fa-regular fa-file-code',  label: 'Go to: connect.json',      action: 'nav:connect' },
     ...data.projects.map((p) => ({
       group: 'projects',
       icon: 'fa-solid fa-folder',
       label: `Project: ${p.name}`,
       sub: p.tagline,
-      action: `nav:projects`,
+      action: 'nav:projects',
     })),
-    { group: 'actions', icon: 'fa-solid fa-envelope', label: 'Copy email address', action: `copy:${data.email}` },
-    { group: 'actions', icon: 'fa-brands fa-github', label: 'Open GitHub', action: `open:${data.githubUrl}` },
-    { group: 'actions', icon: 'fa-brands fa-linkedin', label: 'Open LinkedIn', action: `open:${data.linkedin}` },
+    { group: 'actions', icon: 'fa-solid fa-download',           label: 'Download Resume',            action: 'download:resume' },
+    { group: 'actions', icon: 'fa-solid fa-circle-half-stroke', label: 'Toggle Dark / Light Mode',   action: 'action:toggle-theme' },
+    { group: 'actions', icon: 'fa-solid fa-envelope',           label: 'Copy email address',         action: `copy:${data.email}` },
+    { group: 'actions', icon: 'fa-brands fa-github',            label: 'Open GitHub',                action: `open:${data.githubUrl}` },
+    { group: 'actions', icon: 'fa-brands fa-linkedin',          label: 'Open LinkedIn',              action: `open:${data.linkedin}` },
   ];
 }
 
-function CommandPalette({ onClose, onNavigate }) {
+function CommandPalette({ onClose, onNavigate, onToggleTheme }) {
   const [query, setQuery] = useState('');
   const [active, setActive] = useState(0);
   const inputRef = useRef(null);
@@ -283,9 +375,18 @@ function CommandPalette({ onClose, onNavigate }) {
       navigator.clipboard?.writeText(item.action.replace('copy:', ''));
     } else if (item.action.startsWith('open:')) {
       window.open(item.action.replace('open:', ''), '_blank', 'noopener,noreferrer');
+    } else if (item.action === 'download:resume') {
+      const a = document.createElement('a');
+      a.href = resumePdf;
+      a.download = 'Raviteja_Dugge_Resume.pdf';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    } else if (item.action === 'action:toggle-theme') {
+      onToggleTheme();
     }
     onClose();
-  }, [onNavigate, onClose]);
+  }, [onNavigate, onClose, onToggleTheme]);
 
   const handleKeyDown = useCallback((e) => {
     if (e.key === 'ArrowDown') { e.preventDefault(); setActive((a) => Math.min(a + 1, filtered.length - 1)); }
@@ -352,7 +453,7 @@ function CommandPalette({ onClose, onNavigate }) {
 }
 
 /* ─── Tweaks Panel ───────────────────────────────────────────────────────── */
-function TweaksPanel() {
+function TweaksPanel({ theme, onToggleTheme }) {
   const [open, setOpen] = useState(false);
   const [accent, setAccent] = useLocalStorage('tw_accent', '#FF7250');
   const [density, setDensity] = useLocalStorage('tw_density', 'comfy');
@@ -396,6 +497,20 @@ function TweaksPanel() {
       {open && (
         <div className="tweaks-panel" role="complementary" aria-label="Appearance tweaks">
           <p className="tw-title">Appearance</p>
+
+          <div className="tw-row">
+            <div className="tw-toggle-row">
+              <span>Dark mode</span>
+              <div
+                className={`tw-switch${theme === 'dark' ? ' on' : ''}`}
+                role="switch"
+                aria-checked={theme === 'dark'}
+                tabIndex={0}
+                onClick={onToggleTheme}
+                onKeyDown={(e) => e.key === 'Enter' && onToggleTheme()}
+              />
+            </div>
+          </div>
 
           <div className="tw-row">
             <p className="tw-label">Accent color</p>
@@ -478,8 +593,18 @@ export default function App() {
   const [cmdOpen, setCmdOpen] = useState(false);
   const [activeGroup, setActiveGroup] = useState('files');
   const [caretOn, setCaretOn] = useState(true);
+  const [theme, setTheme] = useLocalStorage('theme', 'dark');
 
   const contentRef = useRef(null);
+
+  /* apply theme to document */
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
+
+  const toggleTheme = useCallback(() => {
+    setTheme((t) => (t === 'dark' ? 'light' : 'dark'));
+  }, [setTheme]);
 
   /* restore caret preference */
   useEffect(() => {
@@ -532,6 +657,25 @@ export default function App() {
     return () => window.removeEventListener('keydown', onKey);
   }, []);
 
+  /* scroll-reveal */
+  useEffect(() => {
+    if (!contentRef.current) return;
+    const els = contentRef.current.querySelectorAll('.section');
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-visible');
+            obs.unobserve(e.target);
+          }
+        });
+      },
+      { root: contentRef.current, threshold: 0.05 }
+    );
+    els.forEach((el) => obs.observe(el));
+    return () => obs.disconnect();
+  }, []);
+
   /* close sidebar on mobile when clicking outside */
   useEffect(() => {
     if (window.innerWidth > 700) return;
@@ -573,6 +717,8 @@ export default function App() {
         onCommandPalette={() => setCmdOpen(true)}
         sidebarOpen={sidebarOpen}
         onToggleSidebar={toggleSidebar}
+        theme={theme}
+        onToggleTheme={toggleTheme}
       />
 
       <ActivityBar activeGroup={activeGroup} onGroupChange={handleGroupChange} />
@@ -594,16 +740,18 @@ export default function App() {
           <Experience data={PORTFOLIO.experience} />
           <GitHub data={PORTFOLIO.github} />
           <Certifications data={PORTFOLIO.certifications} />
+          <Connect data={PORTFOLIO.social} />
+          <CodingProfiles data={PORTFOLIO.coding} />
         </main>
       </div>
 
       <StatusBar activeSection={activeSection} />
 
       {cmdOpen && (
-        <CommandPalette onClose={() => setCmdOpen(false)} onNavigate={navigateTo} />
+        <CommandPalette onClose={() => setCmdOpen(false)} onNavigate={navigateTo} onToggleTheme={toggleTheme} />
       )}
 
-      <TweaksPanel />
+      <TweaksPanel theme={theme} onToggleTheme={toggleTheme} />
     </div>
   );
 }
