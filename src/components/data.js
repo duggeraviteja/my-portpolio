@@ -1,0 +1,227 @@
+const PORTFOLIO = {
+  name: 'Raviteja Dugge',
+  handle: 'duggeraviteja',
+  role: 'Backend Engineer',
+  location: 'Hyderabad, India',
+  timezone: 'IST (UTC+5:30)',
+  yoe: 4,
+  email: 'raviteja.dugge@wavemaker.com',
+  githubUrl: 'https://github.com/duggeraviteja/',
+  linkedin: 'https://www.linkedin.com/in/dugge-raviteja-789ravi/',
+  tagline: 'Building backends that stay boring — reliable, observable, maintainable.',
+
+  skills: {
+    languages: [
+      { name: 'Java', level: 83, years: 4 },
+      { name: 'JavaScript', level: 77, years: 3 },
+      { name: 'SQL', level: 69, years: 4 },
+      { name: 'Python', level: 56, years: 2 },
+    ],
+    frameworks: [
+      { name: 'Spring Boot', level: 85, years: 4 },
+      { name: 'React', level: 72, years: 3 },
+      { name: 'Node.js', level: 74, years: 2 },
+      { name: 'Bootstrap', level: 89, years: 3 },
+    ],
+    data: ['MongoDB', 'MySQL', 'MariaDB', 'Flowable BPM', 'Hibernate', 'JPA', 'JDBC'],
+    infra: ['Git / JGit', 'Docker', 'Jenkins', 'NGINX', 'Maven', 'Linux', 'Squid Proxy'],
+  },
+
+  projects: [
+    {
+      id: 'PRJ-01',
+      name: 'Track COVID-19',
+      kind: 'platform',
+      accent: '#FF7250',
+      tagline: 'Real-time India COVID-19 tracking dashboard',
+      blurb:
+        'Live data dashboard fetching state-wise COVID-19 statistics for India. Visualises daily cases, recoveries, and deaths with responsive layouts.',
+      metrics: [
+        { value: '28', label: 'States' },
+        { value: 'Live', label: 'Data Feed' },
+        { value: '99%', label: 'Uptime' },
+      ],
+      stack: ['React', 'REST API', 'CSS', 'Netlify'],
+      liveUrl: 'https://tracking-covid19-india.netlify.app/',
+      githubUrl: 'https://github.com/duggeraviteja/Covid-19-Tracking-',
+    },
+    {
+      id: 'PRJ-02',
+      name: 'E-Learning App',
+      kind: 'platform',
+      accent: '#656DF9',
+      tagline: 'Full-stack educational platform with course management',
+      blurb:
+        'End-to-end e-learning web application with user authentication, course listings, and content delivery — deployed on Heroku.',
+      metrics: [
+        { value: 'Full', label: 'Stack' },
+        { value: 'Auth', label: 'Login' },
+        { value: 'MVC', label: 'Pattern' },
+      ],
+      stack: ['Node.js', 'Express', 'MongoDB', 'Bootstrap'],
+      liveUrl: 'https://standard-edification.herokuapp.com/',
+      githubUrl: 'https://github.com/duggeraviteja/e_learning_website',
+    },
+    {
+      id: 'PRJ-03',
+      name: 'DSA using Java',
+      kind: 'tooling',
+      accent: '#E0B313',
+      tagline: 'Data structures & algorithms implemented in Java',
+      blurb:
+        'Comprehensive collection of data structure implementations and algorithm solutions in Java — used as a personal reference and study resource.',
+      metrics: [
+        { value: '40+', label: 'Problems' },
+        { value: 'Java', label: 'Language' },
+        { value: 'OOP', label: 'Patterns' },
+      ],
+      stack: ['Java', 'OOP', 'Algorithms'],
+      liveUrl: null,
+      githubUrl: 'https://github.com/duggeraviteja/DSA-Using-JAVA',
+    },
+    {
+      id: 'PRJ-04',
+      name: 'JS Games',
+      kind: 'tooling',
+      accent: '#5AC588',
+      tagline: 'Browser-based JavaScript mini-games collection',
+      blurb:
+        'Suite of classic browser games (memory, snake, tic-tac-toe) built with vanilla JS, demonstrating DOM manipulation and game-loop patterns.',
+      metrics: [
+        { value: '5+', label: 'Games' },
+        { value: '0', label: 'Dependencies' },
+        { value: 'Vanilla', label: 'JS' },
+      ],
+      stack: ['Vanilla JS', 'HTML5', 'CSS3'],
+      liveUrl: 'https://javascript-react-games.herokuapp.com/',
+      githubUrl: 'https://github.com/duggeraviteja/js-games',
+    },
+  ],
+
+  experience: [
+    {
+      role: 'Software Engineer',
+      company: 'WaveMaker',
+      date: 'Apr 2025 – Present',
+      state: 'current',
+      desc: 'Owning VCS architecture and remote studio backend systems for the WaveMaker low-code platform.',
+      bullets: [
+        'Designed Migration vs User Changes Separation — built /vcs/changes, /vcs/pull, /vcs/push APIs preventing accidental rollback of migration commits',
+        'Led Remote Studio Detachment architecture using Git worktree-based repo isolation, NGINX+Lua auto-sync triggers, and container-level repo lifecycle management',
+        'Enabled Bitbucket Cloud repository support and drove GitHub Apps integration from POC to production',
+        'Resolved critical production issues across merge conflicts, export ZIP inconsistencies, and VCS sync errors with zero SLA breaches',
+      ],
+      stack: ['Java 17', 'Spring Boot', 'JGit', 'Git', 'NGINX', 'Docker', 'React'],
+    },
+    {
+      role: 'Software Engineer',
+      company: 'WaveMaker',
+      date: 'Apr 2024 – Mar 2025',
+      state: 'past',
+      desc: 'Led platform modernization and API reliability improvements across backend systems.',
+      bullets: [
+        'Led Java 11 → Java 17 migration: javax→jakarta transition, dependency upgrades, pom restructuring with QA collaboration and internal documentation',
+        'Designed and implemented MR/PR workflow enabling safe developer branch merges before platform release',
+        'Added multipart file upload support and fixed critical API issues (missing model fields, x-www-form-urlencoded handling)',
+        'Fixed sensitive environment property exposure in logs; improved project creation and VCS import reliability',
+      ],
+      stack: ['Java 17', 'Spring Boot', 'Docker', 'Git', 'Maven', 'REST APIs'],
+    },
+    {
+      role: 'Software Engineer',
+      company: 'WaveMaker',
+      date: 'Apr 2023 – Mar 2024',
+      state: 'past',
+      desc: 'Delivered full-stack features and BPM integrations, growing into end-to-end ownership.',
+      bullets: [
+        'Built ReleaseTracker application from scratch — backend APIs, UI, multi-role release tracking, status lifecycle, and email notifications',
+        'Contributed to Java 11 → Java 17 migration initiative with dependency upgrades and foundational understanding of large-scale migrations',
+        'Implemented CSV export and improved profile proxy configuration (URL inclusion/exclusion) in TeamPortal',
+        'Integrated Flowable BPM for workflow-driven release tracking and explored UiPath automation activities',
+      ],
+      stack: ['Java', 'Spring Boot', 'Flowable BPM', 'JavaScript', 'CSS', 'Docker'],
+    },
+    {
+      role: 'Software Engineer',
+      company: 'WaveMaker',
+      date: 'Apr 2022 – Mar 2023',
+      state: 'past',
+      desc: 'Built backend foundations — REST APIs, platform integrations, and developer tooling.',
+      bullets: [
+        'Migrated Recurly billing client from v2 (XML/XStream) to v3 (JSON) — removed legacy XStream library and improved response handling',
+        'Implemented Project Stats API enabling enterprise admins to track project-level metrics across the platform',
+        'Migrated MySQL driver to MariaDB with performance profiling; authored internal migration documentation',
+        'Designed and built a custom Jenkins client library using Spring with retry mechanisms and design patterns',
+      ],
+      stack: ['Java', 'Spring', 'MySQL', 'MariaDB', 'Jenkins', 'REST APIs', 'Git'],
+    },
+  ],
+
+  github: {
+    username: 'duggeraviteja',
+    commitsYear: 312,
+    repos: [
+      {
+        name: 'Covid-19-Tracking-',
+        lang: 'JavaScript',
+        langColor: '#F7DF1E',
+        stars: 3,
+        forks: 1,
+        desc: 'Real-time India COVID-19 tracking dashboard',
+      },
+      {
+        name: 'DSA-Using-JAVA',
+        lang: 'Java',
+        langColor: '#B07219',
+        stars: 5,
+        forks: 2,
+        desc: 'Data structures & algorithms implemented in Java',
+      },
+      {
+        name: 'js-games',
+        lang: 'JavaScript',
+        langColor: '#F7DF1E',
+        stars: 4,
+        forks: 1,
+        desc: 'Browser-based JavaScript mini-games collection',
+      },
+      {
+        name: 'e_learning_website',
+        lang: 'JavaScript',
+        langColor: '#F7DF1E',
+        stars: 2,
+        forks: 0,
+        desc: 'Full-stack e-learning platform',
+      },
+    ],
+  },
+
+  certifications: [
+    {
+      title: 'Spring Professional Certification',
+      issuer: 'Broadcom',
+      year: 2024,
+      badge: 'SPR',
+      color: '#6DB33F',
+      verifyUrl: '#',
+    },
+    {
+      title: 'AWS Cloud Practitioner',
+      issuer: 'Amazon Web Services',
+      year: 2023,
+      badge: 'AWS',
+      color: '#FF9900',
+      verifyUrl: '#',
+    },
+    {
+      title: 'Oracle Certified Java SE Developer',
+      issuer: 'Oracle',
+      year: 2023,
+      badge: 'OCP',
+      color: '#F80000',
+      verifyUrl: '#',
+    },
+  ],
+};
+
+export default PORTFOLIO;
